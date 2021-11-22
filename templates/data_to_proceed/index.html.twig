@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DataToProceed index{% endblock %}
+
+{% block body %}
+    <h1>DataToProceed index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>SomeString</th>
+                <th>SomeInt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for data_to_proceed in data_to_proceeds %}
+            <tr>
+                <td>{{ data_to_proceed.id }}</td>
+                <td>{{ data_to_proceed.someString }}</td>
+                <td>{{ data_to_proceed.someInt }}</td>
+                <td>
+                    <a href="{{ path('data_to_proceed_show', {'id': data_to_proceed.id}) }}">show</a>
+                    <a href="{{ path('data_to_proceed_edit', {'id': data_to_proceed.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('data_to_proceed_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DataToProceed{% endblock %}
+
+{% block body %}
+    <h1>DataToProceed</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ data_to_proceed.id }}</td>
+            </tr>
+            <tr>
+                <th>SomeString</th>
+                <td>{{ data_to_proceed.someString }}</td>
+            </tr>
+            <tr>
+                <th>SomeInt</th>
+                <td>{{ data_to_proceed.someInt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('data_to_proceed_index') }}">back to list</a>
+
+    <a href="{{ path('data_to_proceed_edit', {'id': data_to_proceed.id}) }}">edit</a>
+
+    {{ include('data_to_proceed/_delete_form.html.twig') }}
+{% endblock %}
